@@ -14,22 +14,26 @@ class _ToolBarState extends State<ToolBar> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
         FloatingActionButton(
-          backgroundColor: Colors.green,
+          heroTag: 'Line',
+          backgroundColor: Colors.teal,
           onPressed: _tapped,
           child: Text('line'),
           ),
         FloatingActionButton(
-          backgroundColor: Colors.green,
+          heroTag: 'point',
+          backgroundColor: Colors.teal,
           onPressed: _tapped,
           child: Text('Point'),
           ),
         FloatingActionButton(
-          backgroundColor: Colors.green,
+          heroTag: 'drag',
+          backgroundColor: Colors.teal,
           onPressed: _tapped,
           child: Text('Drag'),
           ),
         FloatingActionButton(
-          backgroundColor: Colors.green,
+          heroTag: 'erase',
+          backgroundColor: Colors.teal,
           onPressed: _tapped,
           child: Text('Erase'),
           ),

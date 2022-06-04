@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class MyGrid extends StatefulWidget {
   const MyGrid({Key? key}) : super(key: key);
@@ -17,6 +18,7 @@ class _MyGridState extends State<MyGrid> {
         divisions: 1,
         interval: 200,
         subdivisions: 8,
+        color: Colors.grey,
       ),
     );
   }
