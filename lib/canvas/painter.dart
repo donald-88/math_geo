@@ -5,24 +5,16 @@ import 'dart:ui';
 class LinePainter extends ChangeNotifier implements CustomPainter {
 
 var strokes = <List<Offset>>[];
+var points = <Offset>[];
 bool hitTest(Offset position) => true;
 
 void startStroke(Offset position){
   print("start stroke");
   strokes.add([position]);
+  points.add(position);
   notifyListeners();
 }
 
-void appendStroke(Offset position){
-  print("appending stroke");
-  var stroke = strokes.last;
-  stroke.add(position);
-  notifyListeners();
-}
-
-void endStroke(){
-  notifyListeners();
-}
 
 @override
 void paint(Canvas canvas, Size size){
@@ -40,13 +32,9 @@ void paint(Canvas canvas, Size size){
   
   
   for (var stroke in strokes){
+    canvas.drawPoints(PointMode.points,stroke, pointPaint);
     Path strokePath = Path();
-
-    Offset a = stroke.first;
-    Offset b = stroke.last;
-    strokePath.moveTo(a.dx, a.dy);
-    strokePath.lineTo(b.dx, b.dy);
-    canvas.drawPoints(PointMode.points,[a,b], pointPaint);
+    strokePath.addPolygon(points, true);
     canvas.drawPath(strokePath, strokePaint);
   }
 }

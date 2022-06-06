@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:math_geometry/pages/landing.dart';
-import 'pages/topics.dart';
-import 'pages/workspace.dart';
+import 'package:math_geometry/pages/topics/transformations/levels.dart';
+import 'pages/topics/main.dart';
+import 'pages/topics/transformations/main.dart';
 
-void main() => runApp(MaterialApp(
+void main() => runApp(MaterialApp(theme: ThemeData(primarySwatch: Colors.teal),
   home: LandingPage(),
   routes: {
     './pages/landing':(context) => LandingPage(),
-    './pages/topics': (context) => Topics(),
-    './pages/workspace': (context) => Workspace(),
+    './pages/topics/main': (context) => Topics(),
+    './pages/topics/transformations/levels': (context) => TransFormationsLevels(),
+    './pages/topics/transformations/main': (context) => Transformations(),
   },
 ));

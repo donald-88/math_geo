@@ -16,26 +16,25 @@ class _ToolBarState extends State<ToolBar> {
         FloatingActionButton(
           heroTag: 'Line',
           backgroundColor: Colors.teal,
+          foregroundColor: Color.fromARGB(224, 224, 224, 255),
           onPressed: _tapped,
-          child: Text('line'),
+          child: Icon(Icons.ads_click)
           ),
+          SizedBox(width: 10),
         FloatingActionButton(
           heroTag: 'point',
           backgroundColor: Colors.teal,
+          foregroundColor: Color.fromARGB(224, 224, 224, 255),
           onPressed: _tapped,
-          child: Text('Point'),
+          child: Icon(Icons.polyline),
           ),
+          SizedBox(width:10),
         FloatingActionButton(
           heroTag: 'drag',
           backgroundColor: Colors.teal,
+          foregroundColor: Color.fromARGB(224, 224, 224, 255),
           onPressed: _tapped,
-          child: Text('Drag'),
-          ),
-        FloatingActionButton(
-          heroTag: 'erase',
-          backgroundColor: Colors.teal,
-          onPressed: _tapped,
-          child: Text('Erase'),
+          child: Icon(Icons.delete),
           ),
       ],
     );

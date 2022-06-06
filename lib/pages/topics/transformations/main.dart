@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:math_geometry/widgets/toolbar.dart';
-import '../canvas/painter.dart';
-import '../widgets/grid.dart';
 
-class Workspace extends StatefulWidget {
-  const Workspace({Key? key}) : super(key: key);
+import '../../../canvas/painter.dart';
+import '../../../widgets/grid.dart';
+
+class Transformations extends StatefulWidget {
+  const Transformations({Key? key}) : super(key: key);
 
   @override
-  State<Workspace> createState() => _WorkspaceState();
+  State<Transformations> createState() => _TransformationsState();
 }
 
 
-class _WorkspaceState extends State<Workspace> {
+class _TransformationsState extends State<Transformations> {
   late GestureDetector touch;
   late CustomPaint canvas;
   late LinePainter linePainter;
@@ -21,14 +22,6 @@ class _WorkspaceState extends State<Workspace> {
     linePainter.startStroke(details.localPosition);
   }
 
-  void onPanUpdate(DragUpdateDetails details){
-    print(details.localPosition);
-    linePainter.appendStroke(details.localPosition);
-  }
-
-  void onPanEnd(DragEndDetails details){
-    linePainter.endStroke();
-  }
 
   @override
   void initState(){
@@ -40,14 +33,16 @@ class _WorkspaceState extends State<Workspace> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('NxtGen Labs Geometry'),
-        backgroundColor: Colors.teal,
+        backgroundColor: Theme.of(context).primaryColor,
+        foregroundColor: Color.fromARGB(224, 224, 224, 255),
+        title: Text('NxtGen Labs Geometry'),
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.question_mark))
+        ],
       ),
       floatingActionButton: const ToolBar(),
       body: GestureDetector(
         onPanStart: onPanStart,
-        onPanUpdate: onPanUpdate,
-        onPanEnd: onPanEnd,
         child: RepaintBoundary(
           child: Container(
             color: Colors.grey[400],
