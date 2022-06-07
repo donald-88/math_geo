@@ -11,8 +11,8 @@ class _MyGridState extends State<MyGrid> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: double.infinity,
-        width: double.infinity,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
         child: CustomPaint(painter: MyGridPainter()));
   }
 }
@@ -35,12 +35,13 @@ class MyGridPainter extends CustomPainter {
     Path gridLines = Path();
     Path centralCoord = Path();
 
-//////////////////////y-coordinates/////////////////
+//////////////////////center-coordinates/////////////////
     centralCoord.moveTo(center.dx, 0.0);
     centralCoord.lineTo(center.dx, size.width);
     centralCoord.moveTo(0.0, center.dy);
     centralCoord.lineTo(size.width, center.dy);
 
+//////////////////////
     for (int y = 0; y <= size.height * 2; ++y) {
       if (y % 30 == 0) {
         gridLines.moveTo(y.toDouble(), 0.0);
