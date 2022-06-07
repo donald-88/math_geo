@@ -49,8 +49,8 @@ class _TransformationsState extends State<Transformations> {
         child: RepaintBoundary(
           child: Container(
               color: Colors.grey[400],
-              height: double.infinity,
-              width: double.infinity,
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
               child: CustomPaint(
                 foregroundPainter: linePainter,
                 child: const MyGrid(),
