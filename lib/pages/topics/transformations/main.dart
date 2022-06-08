@@ -26,6 +26,8 @@ class _TransformationsState extends State<Transformations> {
     linePainter.startStroke(details.localPosition);
   }
 
+  bool isVisible = true;
+
   @override
   void initState() {
     super.initState();
@@ -65,7 +67,11 @@ class _TransformationsState extends State<Transformations> {
               onPressed: _showDialog, icon: const Icon(Icons.question_mark))
         ],
       ),
-      floatingActionButton: const ToolBar(),
+      floatingActionButton: ToolBar(
+        onClick: () => setState(() {
+          isVisible = !isVisible;
+        }),
+      ),
       body: GestureDetector(
         onPanStart: onPanStart,
         child: RepaintBoundary(
@@ -75,7 +81,10 @@ class _TransformationsState extends State<Transformations> {
               width: MediaQuery.of(context).size.width,
               child: CustomPaint(
                 foregroundPainter: linePainter,
-                child: const MyGrid(),
+                child: Visibility(
+                  child: const MyGrid(),
+                  visible: isVisible,
+                ),
               )),
         ),
       ),
