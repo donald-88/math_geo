@@ -11,7 +11,6 @@ class Topics extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Option(
-                width: 200,
                 text: 'Transformations',
                 route: () => Navigator.pushNamed(
                     context, './pages/topics/transformations/levels'))

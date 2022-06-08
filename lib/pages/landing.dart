@@ -10,7 +10,6 @@ class LandingPage extends StatelessWidget {
       color: Colors.teal,
       child: Center(
         child: Option(
-          width: 200,
           text: 'PLAY',
           route: () => Navigator.pushNamed(context, './pages/topics/main') )
       ),
