@@ -15,12 +15,6 @@ class _TransformationsState extends State<Transformations> {
   late GestureDetector touch;
   late CustomPaint canvas;
   late LinePainter linePainter;
-  double dragX = 0.0;
-  double dragY = 0.0;
-
-  bool _dragging = false;
-  bool touchingPoint(double x, double y) =>
-      x >= dragX && x <= dragX + 10.0 && y >= dragY && y <= dragY + 10.0;
 
   void onPanStart(DragStartDetails details) {
     linePainter.startStroke(details.localPosition);
@@ -71,6 +65,7 @@ class _TransformationsState extends State<Transformations> {
         onClick: () => setState(() {
           isVisible = !isVisible;
         }),
+        delete: ()=> linePainter.deletePoint()
       ),
       body: GestureDetector(
         onPanStart: onPanStart,

@@ -2,21 +2,15 @@ import 'package:flutter/material.dart';
 
 class ToolBar extends StatelessWidget {
   final void Function() onClick;
+  final void Function() delete;
 
-  ToolBar({required this.onClick});
+  ToolBar({required this.onClick, required this.delete});
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FloatingActionButton(
-            heroTag: 'Line',
-            backgroundColor: Colors.teal,
-            foregroundColor: Color.fromARGB(224, 224, 224, 255),
-            onPressed: _tapped,
-            child: Icon(Icons.ads_click)),
-        SizedBox(width: 10),
-        FloatingActionButton(
-          heroTag: 'point',
+          heroTag: 'draw',
           backgroundColor: Colors.teal,
           foregroundColor: Color.fromARGB(224, 224, 224, 255),
           onPressed: _tapped,
@@ -24,10 +18,10 @@ class ToolBar extends StatelessWidget {
         ),
         SizedBox(width: 10),
         FloatingActionButton(
-          heroTag: 'drag',
+          heroTag: 'delete',
           backgroundColor: Colors.teal,
           foregroundColor: Color.fromARGB(224, 224, 224, 255),
-          onPressed: _tapped,
+          onPressed: delete,
           child: Icon(Icons.delete),
         ),
         SizedBox(width: 10),
