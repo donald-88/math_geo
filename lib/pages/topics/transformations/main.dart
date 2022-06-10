@@ -70,7 +70,9 @@ class _TransformationsState extends State<Transformations> {
             setState(() {});
           },
           zoomOut: () {
-            _scale = _scale / 1.1;
+            if (_scale > 1.0) {
+              _scale = _scale / 1.1;
+            }
             setState(() {});
           },
           onClick: () => setState(() {

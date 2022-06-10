@@ -35,7 +35,6 @@ class LinePainter extends ChangeNotifier implements CustomPainter {
   bool hitTest(Offset position) => true;
 
   void startStroke(Offset position) {
-    print("start stroke");
     strokes.add([position]);
     points.add(position);
     notifyListeners();
@@ -67,6 +66,11 @@ class LinePainter extends ChangeNotifier implements CustomPainter {
       strokePath.addPolygon(points, true);
       canvas.drawPath(strokePath, strokePaint);
     }
+    List<Offset> qPoints = [Offset(100, 400), Offset(200, 300)];
+
+    Path qPath = Path();
+    qPath.addPolygon(qPoints, true);
+    //canvas.drawPath(qPath, strokePaint);
 
     var counter = 0;
     for (var point in points) {
