@@ -11,8 +11,8 @@ class _MyGridState extends State<MyGrid> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+        height: double.infinity,
+        width: double.infinity,
         child: CustomPaint(painter: MyGridPainter()));
   }
 }
@@ -40,7 +40,6 @@ class MyGridPainter extends CustomPainter {
     centralCoord.lineTo(center.dx, size.width);
     centralCoord.moveTo(0.0, center.dy);
     centralCoord.lineTo(size.width, center.dy);
-
 
     for (double y = 0; y <= center.dy * 2; ++y) {
       if (y % 40 == 0) {
@@ -75,7 +74,7 @@ class MyGridPainter extends CustomPainter {
             textScaleFactor: 1.0 * 0.7);
         tp.layout();
         tp.paint(canvas, Offset(xcoord + center.dx, center.dy));
-        tp.paint(canvas, Offset(- xcoord + center.dx, center.dy));
+        tp.paint(canvas, Offset(-xcoord + center.dx, center.dy));
       }
     }
 
@@ -91,7 +90,7 @@ class MyGridPainter extends CustomPainter {
             textScaleFactor: 1.0 * 0.7);
         tp.layout();
         tp.paint(canvas, Offset(center.dx, ycoord + center.dy));
-        tp.paint(canvas, Offset(center.dx, - ycoord + center.dy));
+        tp.paint(canvas, Offset(center.dx, -ycoord + center.dy));
       }
     }
   }
