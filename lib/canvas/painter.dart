@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 
 class LinePainter extends ChangeNotifier implements CustomPainter {
+  late List<Offset> qPoints;
   var strokes = <List<Offset>>[];
   var points = <Offset>[];
   List<String> alphabet = [
@@ -66,10 +67,11 @@ class LinePainter extends ChangeNotifier implements CustomPainter {
       strokePath.addPolygon(points, true);
       canvas.drawPath(strokePath, strokePaint);
     }
-    List<Offset> qPoints = [Offset(100, 400), Offset(200, 300)];
 
-    Path qPath = Path();
-    qPath.addPolygon(qPoints, true);
+    //Questions List
+
+    //Path qPath = Path();
+    //qPath.addPolygon(qPoints, true);
     //canvas.drawPath(qPath, strokePaint);
 
     var counter = 0;
@@ -85,8 +87,16 @@ class LinePainter extends ChangeNotifier implements CustomPainter {
       tp.paint(canvas, Offset(point.dx, point.dy));
       ++counter;
     }
+
+    //////////paint question points
+    for (var qp in qPoints) {
+      Path path = Path();
+      path.addPolygon(qPoints, true);
+      canvas.drawPath(path, strokePaint);
+    }
   }
 
+  @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 
   @override
